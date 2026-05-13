@@ -8,6 +8,59 @@ import { Download, Sparkles } from 'lucide-react';
 import { useChatOpen } from './ChatProvider';
 import { cn } from '@/lib/utils';
 
+const WINDOWS_DOWNLOAD_URL =
+  'https://github.com/garageMitre/my-app-front-desktop/releases/download/v0.1.1/gastofacil.exe';
+
+const MAC_DOWNLOAD_URL =
+  'https://github.com/garageMitre/my-app-front-desktop/releases/download/v0.1.1/GastoFacil-0.1.1.dmg';
+
+function getDownloadInfo() {
+  if (typeof window === 'undefined') {
+    return {
+      url: WINDOWS_DOWNLOAD_URL,
+      label: 'Descargar app',
+    };
+  }
+
+  const platform = window.navigator.platform.toLowerCase();
+  const userAgent = window.navigator.userAgent.toLowerCase();
+
+  const isMac = platform.includes('mac') || userAgent.includes('mac os');
+  const isWindows = platform.includes('win') || userAgent.includes('windows');
+
+  if (isMac) {
+    return {
+      url: MAC_DOWNLOAD_URL,
+      label: 'Descargar para Mac',
+    };
+  }
+
+  if (isWindows) {
+    return {
+      url: WINDOWS_DOWNLOAD_URL,
+      label: 'Descargar para Windows',
+    };
+  }
+
+  return {
+    url: WINDOWS_DOWNLOAD_URL,
+    label: 'Descargar app',
+  };
+}
+
+function useDownloadInfo() {
+  const [downloadInfo, setDownloadInfo] = useState({
+    url: WINDOWS_DOWNLOAD_URL,
+    label: 'Descargar app',
+  });
+
+  useEffect(() => {
+    setDownloadInfo(getDownloadInfo());
+  }, []);
+
+  return downloadInfo;
+}
+
 function useOfficialUsdRate() {
   const [rate, setRate] = useState<number | null>(null);
 
@@ -19,24 +72,15 @@ function useOfficialUsdRate() {
         setRate(data.venta);
       } catch {}
     }
+
     fetch_();
+
     const id = setInterval(fetch_, 5 * 60 * 1000);
+
     return () => clearInterval(id);
   }, []);
 
   return rate;
-}
-
-function Logo({ className = 'w-15 h-15' }: { className?: string }) {
-  return (
-    <div className={`relative overflow-hidden rounded-xl ${className}`}>
-      <img
-        src="/logo-gastofacil.png"
-        alt="GastoFácil"
-        className="w-full h-full object-cover"
-      />
-    </div>
-  );
 }
 
 const PAGE_TITLES: Record<string, { eyebrow: string; title: string }> = {
@@ -50,6 +94,7 @@ export default function TopBar() {
   const meta = PAGE_TITLES[path] ?? PAGE_TITLES['/dashboard'];
   const { open, toggle } = useChatOpen();
   const usdRate = useOfficialUsdRate();
+  const downloadInfo = useDownloadInfo();
 
   return (
     <header
@@ -59,7 +104,6 @@ export default function TopBar() {
       {/* hairline accent on top */}
       <div className="absolute inset-x-0 top-0 hairline" />
 
-      {/* Logo block */}
       {/* Logo block */}
       <Link href="/dashboard" className="flex items-center gap-3 group shrink-0">
         <div className="relative h-10 w-10 overflow-hidden rounded-2xl border border-indigo-400/20 bg-[#080914] shadow-[0_0_22px_-8px_rgba(99,102,241,0.8)]">
@@ -78,7 +122,7 @@ export default function TopBar() {
             Control de gastos
           </p>
         </div>
-</Link>
+      </Link>
 
       {/* divider */}
       <div className="w-px h-6 bg-line ml-1" />
@@ -102,12 +146,14 @@ export default function TopBar() {
 
       {/* Download desktop app */}
       <a
-        href="/downloads/gastofacil.exe"
+        href={downloadInfo.url}
         download
+        target="_blank"
+        rel="noopener noreferrer"
         className="hidden sm:flex h-9 items-center gap-2 rounded-xl border border-line bg-white/[0.04] px-3 text-xs font-semibold text-text-soft transition-all hover:border-accent/40 hover:bg-accent/10 hover:text-accent-soft"
       >
         <Download className="w-4 h-4" />
-        <span>Descargar app</span>
+        <span>{downloadInfo.label}</span>
       </a>
 
       {/* AI chat toggle */}
@@ -130,8 +176,12 @@ export default function TopBar() {
       {usdRate !== null && (
         <div className="flex items-center gap-2 px-3 h-8 rounded-lg border border-line bg-surface/60 text-xs select-none">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-          <span className="text-text-dim font-semibold tracking-wide">USD OF.</span>
-          <span className="text-text font-bold num">${usdRate.toLocaleString('es-AR')}</span>
+          <span className="text-text-dim font-semibold tracking-wide">
+            USD OF.
+          </span>
+          <span className="text-text font-bold num">
+            ${usdRate.toLocaleString('es-AR')}
+          </span>
         </div>
       )}
     </header>
