@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── core surface ─── */
+  --color-bg:        #08090E;
+  --color-surface:   #0F1117;
+  --color-card:      #14171F;
+  --color-elevated:  #1A1E29;
+
+  /* ─── borders ─── */
+  --color-line:      rgba(255,255,255,0.06);
+  --color-line-2:    rgba(255,255,255,0.10);
+
+  /* ─── brand ─── */
+  --color-accent:        #6C63FF;
+  --color-accent-soft:   #8B83FF;
+  --color-accent-glow:   rgba(108,99,255,0.35);
+
+  /* ─── semantic ─── */
+  --color-success:   #34D399;
+  --color-info:      #38BDF8;
+  --color-warning:   #FBBF24;
+  --color-danger:    #F87171;
+
+  /* ─── text ─── */
+  --color-text:        #E6E8EE;
+  --color-text-soft:   #A8AEBE;
+  --color-text-muted:  #6B7188;
+  --color-text-dim:    #424761;
+
+  /* ─── motion ─── */
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  height: 100%;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* tabular numbers for money */
+.num { font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+
+/* date picker indicator */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.45);
+  cursor: pointer;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+/* scrollbars */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.07); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.13); }
+
+/* selection */
+::selection { background: rgba(108,99,255,0.35); color: #fff; }
+
+/* utility: ambient page glow blob */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* utility: glass card */
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.008));
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.glass-strong {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.012));
+  border: 1px solid var(--color-line-2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* hairline divider */
+.hairline { background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); height: 1px; }
+
+/* glow ring */
+.ring-accent-glow { box-shadow: 0 0 0 1px rgba(108,99,255,0.5), 0 0 24px rgba(108,99,255,0.25); }
+
+/* faint grid pattern overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+}
+
+/* shimmer for loading skeletons */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 8px;
+}
+
+/* breathing dot */
+@keyframes breathe { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+.breathe { animation: breathe 2.4s ease-in-out infinite; }
+
+
+.reminders-table-container {
+  container-type: inline-size;
+}
+
+.reminder-notify-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 150px;
+}
+
+.reminder-notify-short {
+  display: none;
+}
+
+.reminder-notify-full,
+.reminder-notify-date {
+  display: inline;
+}
+
+/* Solo cuando el contenido se achica mucho, por ejemplo con el chat abierto */
+@container (max-width: 950px) {
+  .reminder-notify-cell {
+    min-width: 58px;
+  }
+
+  .reminder-notify-short {
+    display: inline;
+  }
+
+  .reminder-notify-full,
+  .reminder-notify-date {
+    display: none;
+  }
+}
