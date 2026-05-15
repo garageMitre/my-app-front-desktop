@@ -94,6 +94,8 @@ const config: NextAuthConfig = {
   },
 
   session: { strategy: 'jwt' },
+
+  trustHost: true,
 };
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);
