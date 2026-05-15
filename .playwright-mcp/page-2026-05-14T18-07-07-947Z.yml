@@ -1,0 +1,44 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - img "GastoFácil" [ref=e8]
+        - generic [ref=e9]: GastoFácil
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - heading "Controlá tus finanzas, tomá el control." [level=1] [ref=e12]:
+            - text: Controlá tus
+            - text: finanzas,
+            - text: tomá el control.
+          - paragraph [ref=e13]: Una herramienta simple y poderosa para llevar tus gastos al día, en pesos y dólares.
+        - generic [ref=e14]:
+          - generic [ref=e17]: Seguí ingresos, gastos y categorías
+          - generic [ref=e20]: Gestión en ARS y USD con cotización oficial
+          - generic [ref=e23]: Asistente IA para analizar tus finanzas
+      - paragraph [ref=e24]: © 2026 GastoFácil
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - heading "Creá tu cuenta" [level=2] [ref=e28]
+        - paragraph [ref=e29]: Completá los datos para empezar
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - generic [ref=e33]: Nombre
+            - textbox "Juan" [ref=e34]
+          - generic [ref=e35]:
+            - generic [ref=e36]: Apellido
+            - textbox "Pérez" [ref=e37]
+        - generic [ref=e38]:
+          - generic [ref=e39]: Correo electrónico
+          - textbox "tu@email.com" [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]: Contraseña
+          - textbox "Mínimo 6 caracteres" [ref=e44]
+          - paragraph [ref=e45]: Una mayúscula · una minúscula · un número o símbolo
+        - button "Crear cuenta" [ref=e46]
+        - paragraph [ref=e47]:
+          - text: ¿Ya tenés cuenta?
+          - link "Iniciá sesión" [ref=e48] [cursor=pointer]:
+            - /url: /login
+  - button "Open Next.js Dev Tools" [ref=e54] [cursor=pointer]:
+    - img [ref=e55]

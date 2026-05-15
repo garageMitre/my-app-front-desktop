@@ -1,0 +1,156 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "GastoFácil GastoFácil Control de gastos" [ref=e4] [cursor=pointer]:
+      - /url: /dashboard
+      - img "GastoFácil" [ref=e6]
+      - generic [ref=e7]:
+        - paragraph [ref=e8]: GastoFácil
+        - paragraph [ref=e9]: Control de gastos
+    - generic [ref=e11]:
+      - generic [ref=e12]: Resumen
+      - generic [ref=e13]: /
+      - generic [ref=e14]: Dashboard
+    - link "Descargar app" [ref=e15] [cursor=pointer]:
+      - /url: https://github.com/garageMitre/my-app-front-desktop/releases/download/v0.1.1/gastofacil.exe
+      - img [ref=e16]
+      - generic [ref=e19]: Descargar app
+    - button "Abrir asistente" [ref=e20]:
+      - img [ref=e21]
+  - generic [ref=e23]:
+    - complementary [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Asistente
+          - paragraph [ref=e35]: IA financiera · listo
+        - button [ref=e36]:
+          - img [ref=e37]
+      - log [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - img [ref=e44]
+            - paragraph [ref=e46]: Hola, ¿en qué te ayudo?
+            - paragraph [ref=e47]: Escribí o hablá para consultar tus gastos o registrar uno nuevo.
+          - generic [ref=e48]:
+            - button [ref=e49]:
+              - img [ref=e50]
+              - generic [ref=e53]: ¿Cuánto gasté este mes?
+            - button [ref=e54]:
+              - img [ref=e55]
+              - generic [ref=e58]: ¿En qué categoría gasto más?
+            - button [ref=e59]:
+              - img [ref=e60]
+              - generic [ref=e63]: Registrá un gasto por mí
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - textbox [ref=e66]:
+            - /placeholder: Escribí o usá el micrófono…
+          - button [ref=e67]:
+            - img [ref=e68]
+          - button [disabled]:
+            - img
+        - paragraph [ref=e71]: Powered by Claude · GastoFácil AI
+    - main [ref=e72]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - paragraph [ref=e77]: Resumen financiero
+            - heading "Mayo 2026" [level=1] [ref=e78]
+            - paragraph [ref=e79]: Una vista rápida de tus gastos y movimientos del mes.
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - button "ARS" [ref=e82]
+              - button "USD" [ref=e83]
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - button [ref=e86]:
+                  - img [ref=e87]
+                - generic [ref=e89]: "2026"
+                - button [disabled] [ref=e90]:
+                  - img [ref=e91]
+              - generic [ref=e93]:
+                - button "ene" [ref=e94]
+                - button "feb" [ref=e95]
+                - button "mar" [ref=e96]
+                - button "abr" [ref=e97]
+                - button "may" [ref=e98]
+                - button "jun" [disabled] [ref=e99]
+                - button "jul" [disabled] [ref=e100]
+                - button "ago" [disabled] [ref=e101]
+                - button "sep" [disabled] [ref=e102]
+                - button "oct" [disabled] [ref=e103]
+                - button "nov" [disabled] [ref=e104]
+                - button "dic" [disabled] [ref=e105]
+        - generic [ref=e106]:
+          - generic [ref=e108] [cursor=pointer]:
+            - img [ref=e110]
+            - generic [ref=e112]:
+              - paragraph [ref=e113]: Banco (BBVA)
+              - paragraph [ref=e114]: Sin configurar · subí un resumen BBVA
+            - img [ref=e116]
+          - generic [ref=e120]:
+            - generic [ref=e121]:
+              - img [ref=e123]
+              - generic [ref=e126]:
+                - paragraph [ref=e127]: Efectivo
+                - paragraph [ref=e128]: Sin configurar
+            - button "Editar saldo efectivo" [ref=e129]:
+              - img [ref=e130]
+        - generic [ref=e161]:
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]:
+                - paragraph [ref=e165]: Gastos del mes
+                - paragraph [ref=e166]: Mayo 2026
+                - paragraph [ref=e167]: Total $ 0
+              - generic [ref=e168]:
+                - button "Categorías" [ref=e169]
+                - button "Fechas" [ref=e170]
+                - button "Registros" [ref=e171]
+            - generic [ref=e173]:
+              - img [ref=e175]
+              - paragraph [ref=e177]: Sin datos para este período
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - paragraph [ref=e180]: Por categoría
+              - button [ref=e181]:
+                - img [ref=e182]
+            - generic [ref=e187]:
+              - img [ref=e189]
+              - paragraph [ref=e191]: Sin datos este mes
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - img [ref=e196]
+              - paragraph [ref=e198]: Últimas transacciones
+              - generic [ref=e199]: ·
+              - generic [ref=e200]: 0 registros
+            - link "Ver todas" [ref=e201] [cursor=pointer]:
+              - /url: /gastos
+              - text: Ver todas
+              - img [ref=e202]
+          - generic [ref=e206]:
+            - img [ref=e208]
+            - paragraph [ref=e210]: Sin gastos en este período
+  - navigation [ref=e211]:
+    - link "Dashboard" [ref=e212] [cursor=pointer]:
+      - /url: /dashboard
+      - generic: Dashboard
+      - img [ref=e215]
+    - link "Gastos" [ref=e221] [cursor=pointer]:
+      - /url: /gastos
+      - generic: Gastos
+      - img [ref=e223]
+    - link "Ingresos" [ref=e226] [cursor=pointer]:
+      - /url: /ingresos
+      - generic: Ingresos
+      - img [ref=e228]
+    - link "Categorías" [ref=e231] [cursor=pointer]:
+      - /url: /categorias
+      - generic: Categorías
+      - img [ref=e233]
+    - link "Recordatorios" [ref=e236] [cursor=pointer]:
+      - /url: /recordatorios
+      - generic: Recordatorios
+      - img [ref=e238]
+  - button "Open Next.js Dev Tools" [ref=e246] [cursor=pointer]:
+    - img [ref=e247]

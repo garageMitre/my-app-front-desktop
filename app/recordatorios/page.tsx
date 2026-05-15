@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useSession } from 'next-auth/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Plus,
@@ -85,12 +86,19 @@ const PAGE_SIZES = [5, 10, 20, 50];
 
 export default function RecordatoriosPage() {
   const { toast } = useToast();
+  const { data: session } = useSession();
 
   const [reminders, setReminders] = useState<Reminder[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [panelOpen, setPanelOpen] = useState(false);
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
+
+  useEffect(() => {
+    if (session?.user?.email) {
+      setForm(f => f.email ? f : { ...f, email: session.user!.email! });
+    }
+  }, [session]);
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [saving, setSaving] = useState(false);
 
@@ -162,6 +170,7 @@ export default function RecordatoriosPage() {
   function openNew() {
     setForm({
       ...EMPTY_FORM,
+      email: session?.user?.email ?? '',
       remindAt: toDatetimeLocalValue(new Date(Date.now() + 60 * 60 * 1000)),
     });
     setErrors({});

@@ -1,0 +1,347 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e6] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e7]:
+      - img [ref=e8]
+    - generic [ref=e11]:
+      - button "Open issues overlay" [ref=e12]:
+        - generic [ref=e13]:
+          - generic [ref=e14]: "0"
+          - generic [ref=e15]: "1"
+        - generic [ref=e16]: Issue
+      - button "Collapse issues badge" [ref=e17]:
+        - img [ref=e18]
+  - banner [ref=e20]:
+    - link "GastoFácil GastoFácil Control de gastos" [ref=e22] [cursor=pointer]:
+      - /url: /dashboard
+      - img "GastoFácil" [ref=e24]
+      - generic [ref=e25]:
+        - paragraph [ref=e26]: GastoFácil
+        - paragraph [ref=e27]: Control de gastos
+    - generic [ref=e29]:
+      - generic [ref=e30]: Resumen
+      - generic [ref=e31]: /
+      - generic [ref=e32]: Dashboard
+    - link "Descargar para Windows" [ref=e273] [cursor=pointer]:
+      - /url: https://github.com/garageMitre/my-app-front-desktop/releases/download/v0.1.1/gastofacil.exe
+      - img [ref=e34]
+      - generic [ref=e37]: Descargar para Windows
+    - button "Abrir asistente" [ref=e38]:
+      - img [ref=e39]
+    - generic [ref=e274]:
+      - generic [ref=e276]: USD OF.
+      - generic [ref=e277]: $1.420
+  - generic [ref=e41]:
+    - complementary [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: Asistente
+          - paragraph [ref=e53]: IA financiera · listo
+        - button [ref=e54]:
+          - img [ref=e55]
+        - button [ref=e59]:
+          - img [ref=e60]
+      - log [ref=e64]:
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - img [ref=e67]
+            - paragraph [ref=e69]: Hola, ¿en qué te ayudo?
+            - paragraph [ref=e70]: Escribí o hablá para consultar tus gastos o registrar uno nuevo.
+            - paragraph [ref=e71]:
+              - img [ref=e72]
+              - text: Podés usar el micrófono
+          - generic [ref=e75]:
+            - button [ref=e76]:
+              - img [ref=e77]
+              - generic [ref=e80]: ¿Cuánto gasté este mes?
+            - button [ref=e81]:
+              - img [ref=e82]
+              - generic [ref=e85]: ¿En qué categoría gasto más?
+            - button [ref=e86]:
+              - img [ref=e87]
+              - generic [ref=e90]: Registrá un gasto por mí
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - textbox [ref=e93]:
+            - /placeholder: Escribí o usá el micrófono…
+          - button [ref=e94]:
+            - img [ref=e95]
+          - button [ref=e98]:
+            - img [ref=e99]
+          - button [disabled]:
+            - img
+        - paragraph [ref=e102]: Powered by Claude · GastoFácil AI
+    - main [ref=e103]:
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - generic [ref=e107]:
+            - paragraph [ref=e108]: Resumen financiero
+            - heading "Mayo 2026" [level=1] [ref=e109]
+            - paragraph [ref=e110]: Una vista rápida de tus gastos y movimientos del mes.
+          - generic [ref=e111]:
+            - generic [ref=e112]:
+              - button "ARS" [ref=e113]
+              - button "USD" [ref=e114]
+            - generic [ref=e115]:
+              - generic [ref=e116]:
+                - button [ref=e117]:
+                  - img [ref=e118]
+                - generic [ref=e120]: "2026"
+                - button [disabled] [ref=e121]:
+                  - img [ref=e122]
+              - generic [ref=e124]:
+                - button "ene" [ref=e125]
+                - button "feb" [ref=e126]
+                - button "mar" [ref=e127]
+                - button "abr" [ref=e128]
+                - button "may" [ref=e129]
+                - button "jun" [disabled] [ref=e130]
+                - button "jul" [disabled] [ref=e131]
+                - button "ago" [disabled] [ref=e132]
+                - button "sep" [disabled] [ref=e133]
+                - button "oct" [disabled] [ref=e134]
+                - button "nov" [disabled] [ref=e135]
+                - button "dic" [disabled] [ref=e136]
+        - generic [ref=e137]:
+          - generic [ref=e139] [cursor=pointer]:
+            - img [ref=e141]
+            - generic [ref=e143]:
+              - paragraph [ref=e144]: Banco (BBVA)
+              - paragraph [ref=e278]: $ 92.253
+              - generic [ref=e279]:
+                - img [ref=e280]
+                - text: 7 may · BBVA import
+            - img [ref=e147]
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - img [ref=e154]
+              - generic [ref=e157]:
+                - paragraph [ref=e158]: Efectivo
+                - paragraph [ref=e283]: $ 506.342
+                - generic [ref=e284]:
+                  - img [ref=e285]
+                  - text: 8 may · Manual
+            - button "Editar saldo efectivo" [ref=e160]:
+              - img [ref=e161]
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - generic [ref=e290]:
+              - img [ref=e294]
+              - generic [ref=e297]:
+                - img [ref=e298]
+                - text: 81%
+            - generic [ref=e301]:
+              - paragraph [ref=e302]: Total gastado
+              - paragraph [ref=e303]: $ 1.614.211
+              - paragraph [ref=e304]: vs $ 890.000 el mes anterior
+            - img [ref=e306]
+          - generic [ref=e309]:
+            - img [ref=e314]
+            - generic [ref=e317]:
+              - paragraph [ref=e318]: Gastos fijos
+              - paragraph [ref=e319]: $ 221.990
+              - paragraph [ref=e320]: 14% del total
+            - img [ref=e322]
+          - generic [ref=e325]:
+            - img [ref=e330]
+            - generic [ref=e332]:
+              - paragraph [ref=e333]: Gastos variables
+              - paragraph [ref=e334]: $ 1.392.221
+              - paragraph [ref=e335]: 86% del total
+            - img [ref=e337]
+        - generic [ref=e340]:
+          - paragraph [ref=e341]: Historial de saldos
+          - generic [ref=e342]:
+            - generic [ref=e343]:
+              - generic [ref=e346]:
+                - paragraph [ref=e347]: $ 506.342
+                - paragraph [ref=e348]: Efectivo · Manual
+              - paragraph [ref=e349]: 8 de may de 26
+            - generic [ref=e350]:
+              - generic [ref=e353]:
+                - paragraph [ref=e354]: $ 92.253
+                - paragraph [ref=e355]: Banco · BBVA import
+              - paragraph [ref=e356]: 7 de may de 26
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - paragraph [ref=e196]: Gastos del mes
+                - paragraph [ref=e197]: Mayo 2026
+                - paragraph [ref=e198]: Total $ 1.614.211
+              - generic [ref=e199]:
+                - button "Categorías" [ref=e200]
+                - button "Fechas" [ref=e201]
+                - button "Registros" [ref=e202]
+            - generic [ref=e358]:
+              - generic [ref=e363]: Rop
+              - generic [ref=e368]: Ban
+              - generic [ref=e373]: Gym
+              - generic [ref=e378]: Cin
+              - generic [ref=e383]: Rem
+              - generic [ref=e388]: Sup
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - paragraph [ref=e211]: Por categoría
+              - button [ref=e212]:
+                - img [ref=e213]
+            - generic [ref=e217]:
+              - generic [ref=e390]:
+                - generic [ref=e391]:
+                  - img [ref=e394]
+                  - generic [ref=e396]: Ropa
+                - generic [ref=e397]:
+                  - text: $ 600.000
+                  - generic [ref=e398]: 37%
+              - generic [ref=e403]:
+                - generic [ref=e404]:
+                  - img [ref=e407]
+                  - generic [ref=e409]: Bancos
+                - generic [ref=e410]:
+                  - text: $ 599.021
+                  - generic [ref=e411]: 37%
+              - generic [ref=e416]:
+                - generic [ref=e417]:
+                  - img [ref=e420]
+                  - generic [ref=e426]: Gym
+                - generic [ref=e427]:
+                  - text: $ 199.400
+                  - generic [ref=e428]: 12%
+              - generic [ref=e433]:
+                - generic [ref=e434]:
+                  - img [ref=e437]
+                  - generic [ref=e439]: Cine
+                - generic [ref=e440]:
+                  - text: $ 80.790
+                  - generic [ref=e441]: 5%
+              - generic [ref=e446]:
+                - generic [ref=e447]:
+                  - img [ref=e450]
+                  - generic [ref=e453]: Remedios
+                - generic [ref=e454]:
+                  - text: $ 80.000
+                  - generic [ref=e455]: 5%
+              - generic [ref=e460]:
+                - generic [ref=e461]:
+                  - img [ref=e464]
+                  - generic [ref=e468]: Supermercado
+                - generic [ref=e469]:
+                  - text: $ 55.000
+                  - generic [ref=e470]: 3%
+        - generic [ref=e224]:
+          - generic [ref=e225]:
+            - generic [ref=e226]:
+              - img [ref=e227]
+              - paragraph [ref=e229]: Últimas transacciones
+              - generic [ref=e230]: ·
+              - generic [ref=e231]: 5 registros
+            - link "Ver todas" [ref=e232] [cursor=pointer]:
+              - /url: /gastos
+              - text: Ver todas
+              - img [ref=e233]
+          - table [ref=e474]:
+            - rowgroup [ref=e475]:
+              - row "Descripción Categoría Fecha Tipo Monto" [ref=e476]:
+                - columnheader "Descripción" [ref=e477]
+                - columnheader "Categoría" [ref=e478]
+                - columnheader "Fecha" [ref=e479]
+                - columnheader "Tipo" [ref=e480]
+                - columnheader "Monto" [ref=e481]
+            - rowgroup [ref=e482]:
+              - row "Transferencia inmediata Bancos 4 may Variable −$ 128.000" [ref=e483]:
+                - cell "Transferencia inmediata" [ref=e484]:
+                  - generic [ref=e485]:
+                    - img [ref=e488]
+                    - generic [ref=e490]: Transferencia inmediata
+                - cell "Bancos" [ref=e491]
+                - cell "4 may" [ref=e492]
+                - cell "Variable" [ref=e493]:
+                  - generic [ref=e494]: Variable
+                - cell "−$ 128.000" [ref=e496]:
+                  - generic [ref=e497]: −$ 128.000
+              - row "PAGO DE TARJETA VISA Nro:00340905 Bancos 8 may Variable −$ 46.596" [ref=e498]:
+                - cell "PAGO DE TARJETA VISA Nro:00340905" [ref=e499]:
+                  - generic [ref=e500]:
+                    - img [ref=e503]
+                    - generic [ref=e505]: PAGO DE TARJETA VISA Nro:00340905
+                - cell "Bancos" [ref=e506]
+                - cell "8 may" [ref=e507]
+                - cell "Variable" [ref=e508]:
+                  - generic [ref=e509]: Variable
+                - cell "−$ 46.596" [ref=e511]:
+                  - generic [ref=e512]: −$ 46.596
+              - row "PAGO DE TARJETA MASTERCARD Nro:00340905 Bancos 8 may Variable −$ 80.110" [ref=e513]:
+                - cell "PAGO DE TARJETA MASTERCARD Nro:00340905" [ref=e514]:
+                  - generic [ref=e515]:
+                    - img [ref=e518]
+                    - generic [ref=e520]: PAGO DE TARJETA MASTERCARD Nro:00340905
+                - cell "Bancos" [ref=e521]
+                - cell "8 may" [ref=e522]
+                - cell "Variable" [ref=e523]:
+                  - generic [ref=e524]: Variable
+                - cell "−$ 80.110" [ref=e526]:
+                  - generic [ref=e527]: −$ 80.110
+              - row "PAGO SERVICIOS Nro:466330 Bancos 8 may Variable −$ 44.315" [ref=e528]:
+                - cell "PAGO SERVICIOS Nro:466330" [ref=e529]:
+                  - generic [ref=e530]:
+                    - img [ref=e533]
+                    - generic [ref=e535]: PAGO SERVICIOS Nro:466330
+                - cell "Bancos" [ref=e536]
+                - cell "8 may" [ref=e537]
+                - cell "Variable" [ref=e538]:
+                  - generic [ref=e539]: Variable
+                - cell "−$ 44.315" [ref=e541]:
+                  - generic [ref=e542]: −$ 44.315
+              - row "PAGO SERVICIOS Nro:074114 Bancos 8 may Variable −$ 300.000" [ref=e543]:
+                - cell "PAGO SERVICIOS Nro:074114" [ref=e544]:
+                  - generic [ref=e545]:
+                    - img [ref=e548]
+                    - generic [ref=e550]: PAGO SERVICIOS Nro:074114
+                - cell "Bancos" [ref=e551]
+                - cell "8 may" [ref=e552]
+                - cell "Variable" [ref=e553]:
+                  - generic [ref=e554]: Variable
+                - cell "−$ 300.000" [ref=e556]:
+                  - generic [ref=e557]: −$ 300.000
+  - navigation [ref=e242]:
+    - link "Dashboard" [ref=e243] [cursor=pointer]:
+      - /url: /dashboard
+      - generic: Dashboard
+      - img [ref=e246]
+    - link "Gastos" [ref=e252] [cursor=pointer]:
+      - /url: /gastos
+      - generic: Gastos
+      - img [ref=e254]
+    - link "Ingresos" [ref=e257] [cursor=pointer]:
+      - /url: /ingresos
+      - generic: Ingresos
+      - img [ref=e259]
+    - link "Categorías" [ref=e262] [cursor=pointer]:
+      - /url: /categorias
+      - generic: Categorías
+      - img [ref=e264]
+    - link "Recordatorios" [ref=e267] [cursor=pointer]:
+      - /url: /recordatorios
+      - generic: Recordatorios
+      - img [ref=e269]
+  - alert [ref=e272]
+  - generic [ref=e559]:
+    - generic [ref=e560]:
+      - generic [ref=e561]:
+        - img [ref=e563]
+        - generic [ref=e565]:
+          - paragraph [ref=e566]: Resúmenes bancarios
+          - paragraph [ref=e567]: Banco BBVA
+      - button [ref=e568]:
+        - img [ref=e569]
+    - generic [ref=e576] [cursor=pointer]:
+      - img [ref=e578]
+      - generic [ref=e580]:
+        - paragraph [ref=e581]: Abr 2026 – May 2026
+        - generic [ref=e582]:
+          - generic [ref=e583]: 10 mov.
+          - generic [ref=e585]: ↓ 6 gastos
+          - generic [ref=e586]: ↑ 4 ingresos
+      - paragraph [ref=e588]: $ 92.253
+      - button [ref=e590]:
+        - img [ref=e591]
+      - img [ref=e594]

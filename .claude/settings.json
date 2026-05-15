@@ -4,7 +4,9 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\nachi\\\\Projects\\\\gastofacil-desktop\\\\lib\" -Force)",
       "Bash(Select-Object Name, FullName)",
       "PowerShell(ls -R \"c:\\\\Users\\\\nachi\\\\Projects\\\\gastofacil-desktop\")",
-      "PowerShell(head -100)"
+      "PowerShell(head -100)",
+      "mcp__playwright",
+      "context7"
     ]
   }
 }

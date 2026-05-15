@@ -1,0 +1,41 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e6]: 💸
+      - generic [ref=e7]:
+        - heading "GastoFácil" [level=1] [ref=e8]
+        - paragraph [ref=e9]: Control de gastos personal
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Crear cuenta" [level=2] [ref=e12]
+        - paragraph [ref=e13]: Completá tus datos para registrarte
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e17]: Nombre
+            - generic [ref=e18]:
+              - img
+              - textbox "Juan" [ref=e19]
+          - generic [ref=e20]:
+            - generic [ref=e21]: Apellido
+            - textbox "Pérez" [ref=e22]
+        - generic [ref=e23]:
+          - generic [ref=e24]: Email
+          - generic [ref=e25]:
+            - img
+            - textbox "tu@email.com" [ref=e26]
+        - generic [ref=e27]:
+          - generic [ref=e28]: Contraseña
+          - generic [ref=e29]:
+            - img
+            - textbox "••••••••" [ref=e30]
+          - paragraph [ref=e31]: Mínimo 6 caracteres · una mayúscula · una minúscula · un número o símbolo
+        - button "Crear cuenta" [ref=e32]:
+          - img [ref=e33]
+          - text: Crear cuenta
+        - paragraph [ref=e36]:
+          - text: ¿Ya tenés cuenta?
+          - link "Iniciá sesión" [ref=e37] [cursor=pointer]:
+            - /url: /login
+  - button "Open Next.js Dev Tools" [ref=e43] [cursor=pointer]:
+    - img [ref=e44]

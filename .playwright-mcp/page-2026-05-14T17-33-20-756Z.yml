@@ -1,0 +1,31 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e6]: 💸
+      - generic [ref=e7]:
+        - heading "GastoFácil" [level=1] [ref=e8]
+        - paragraph [ref=e9]: Control de gastos personal
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Iniciá sesión" [level=2] [ref=e12]
+        - paragraph [ref=e13]: Ingresá tus datos para continuar
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: Email
+          - generic [ref=e17]:
+            - img
+            - textbox "tu@email.com" [ref=e18]
+        - generic [ref=e19]:
+          - generic [ref=e20]: Contraseña
+          - generic [ref=e21]:
+            - img
+            - textbox "••••••••" [ref=e22]
+        - button "Ingresar" [ref=e23]:
+          - img [ref=e24]
+          - text: Ingresar
+        - paragraph [ref=e27]:
+          - text: ¿No tenés cuenta?
+          - link "Registrate" [ref=e28] [cursor=pointer]:
+            - /url: /register
+  - button "Open Next.js Dev Tools" [ref=e34] [cursor=pointer]:
+    - img [ref=e35]

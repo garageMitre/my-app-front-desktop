@@ -589,17 +589,24 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
               onClick={e => e.stopPropagation()}
             >
               {/* ── Header ── */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-line flex-shrink-0">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-line flex-shrink-0">
                 <div className="flex items-center gap-3">
-                  {selectedBatch && (
+                  {selectedBatch ? (
                     <button onClick={onBack} className="w-7 h-7 grid place-items-center rounded-lg border border-line text-text-muted hover:text-text hover:bg-white/[0.06] transition-colors flex-shrink-0">
                       <ChevronLeft className="w-4 h-4" />
                     </button>
+                  ) : (
+                    <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 grid place-items-center flex-shrink-0">
+                      <Landmark className="w-4 h-4 text-emerald-400" />
+                    </div>
                   )}
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-dim">
-                      {selectedBatch ? batchMonthLabel(selectedBatch) : 'Resumenes bancarios'}
+                      {selectedBatch ? batchMonthLabel(selectedBatch) : 'Resúmenes bancarios'}
                     </p>
+                    {!selectedBatch && (
+                      <p className="text-sm font-semibold text-text mt-0.5">Banco BBVA</p>
+                    )}
                     {selectedBatch && selectedBatch.snapshotAmount !== null && (
                       <p className="text-xl font-bold text-emerald-300 num mt-0.5">{fmtARS(selectedBatch.snapshotAmount)}</p>
                     )}
@@ -622,10 +629,37 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                           <Loader2 className="w-6 h-6 animate-spin text-text-dim" />
                         </div>
                       ) : batchList.length === 0 ? (
-                        <div className="flex flex-col items-center justify-center py-20 gap-3 text-text-dim">
-                          <Landmark className="w-8 h-8 opacity-25" />
-                          <p className="text-sm">Sin resumenes importados</p>
-                          <p className="text-xs opacity-60">Subí un resumen BBVA desde el chat de IA</p>
+                        <div className="flex flex-col items-center justify-center py-14 px-8 gap-5">
+                          <div className="relative">
+                            <div className="w-20 h-20 rounded-2xl bg-emerald-500/[0.07] border border-emerald-500/15 grid place-items-center">
+                              <Landmark className="w-8 h-8 text-emerald-400/40" />
+                            </div>
+                            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-lg bg-[#0c0e14] border border-line grid place-items-center">
+                              <span className="text-[10px]">📄</span>
+                            </div>
+                          </div>
+                          <div className="text-center space-y-1.5">
+                            <p className="text-sm font-semibold text-text">Sin resúmenes importados</p>
+                            <p className="text-xs text-text-dim max-w-[260px] leading-relaxed">
+                              Importá tu resumen bancario BBVA para ver tus movimientos automáticamente
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-4 mt-1 text-[11px] text-text-dim/50">
+                            <div className="flex items-center gap-1.5">
+                              <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 grid place-items-center text-[8px] text-emerald-400/60 font-bold">1</div>
+                              <span>Abrí el chat IA</span>
+                            </div>
+                            <div className="w-3 h-px bg-line" />
+                            <div className="flex items-center gap-1.5">
+                              <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 grid place-items-center text-[8px] text-emerald-400/60 font-bold">2</div>
+                              <span>Adjuntá el PDF</span>
+                            </div>
+                            <div className="w-3 h-px bg-line" />
+                            <div className="flex items-center gap-1.5">
+                              <div className="w-4 h-4 rounded-full bg-emerald-500/10 border border-emerald-500/20 grid place-items-center text-[8px] text-emerald-400/60 font-bold">3</div>
+                              <span>Esperá el análisis</span>
+                            </div>
+                          </div>
                         </div>
                       ) : (
                         <div className="p-4 flex flex-col gap-2">
@@ -639,29 +673,37 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                                 key={bId}
                                 initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.04 }}
-                                className="group relative rounded-xl border border-emerald-500/15 bg-emerald-500/[0.03] hover:border-emerald-500/30 hover:bg-emerald-500/[0.06] transition-all cursor-pointer"
+                                className="group relative rounded-2xl border border-white/[0.06] bg-white/[0.02] hover:border-emerald-500/25 hover:bg-emerald-500/[0.04] transition-all cursor-pointer"
                                 onClick={() => !isConfirming && onOpenBatch(b)}
                               >
-                                <div className="flex items-center gap-4 px-5 py-4">
+                                <div className="flex items-center gap-4 px-4 py-3.5">
+                                  {/* Calendar icon */}
+                                  <div className="w-11 h-11 rounded-xl bg-emerald-500/[0.08] border border-emerald-500/15 grid place-items-center flex-shrink-0">
+                                    <Landmark className="w-4.5 h-4.5 text-emerald-400/60" style={{ width: 18, height: 18 }} />
+                                  </div>
+
                                   {/* Left: date label + counts */}
                                   <div className="flex-1 min-w-0">
                                     <p className="text-text font-semibold text-sm">{batchMonthLabel(b)}</p>
-                                    <p className="text-text-dim text-xs mt-0.5">
-                                      {b.expenseCount + b.incomeCount} movimientos
-                                      <span className="mx-1 opacity-40">·</span>
-                                      <span className="text-red-400/70">{b.expenseCount} gastos</span>
-                                      <span className="mx-1 opacity-40">·</span>
-                                      <span className="text-emerald-400/70">{b.incomeCount} ingresos</span>
-                                    </p>
+                                    <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
+                                      <span className="text-[10px] text-text-dim/50">{b.expenseCount + b.incomeCount} mov.</span>
+                                      <span className="w-px h-2.5 bg-line/60" />
+                                      <span className="inline-flex items-center gap-1 bg-red-500/[0.1] text-red-400/80 text-[10px] font-semibold px-1.5 py-0.5 rounded-md">
+                                        ↓ {b.expenseCount} gastos
+                                      </span>
+                                      <span className="inline-flex items-center gap-1 bg-emerald-500/[0.1] text-emerald-400/80 text-[10px] font-semibold px-1.5 py-0.5 rounded-md">
+                                        ↑ {b.incomeCount} ingresos
+                                      </span>
+                                    </div>
                                   </div>
 
                                   {/* Right: snapshot amount + prev */}
                                   <div className="text-right flex-shrink-0">
                                     {b.snapshotAmount !== null ? (
                                       <>
-                                        <p className="text-emerald-300 font-bold num text-base">{fmtARS(b.snapshotAmount)}</p>
+                                        <p className="text-emerald-300 font-bold num text-sm">{fmtARS(b.snapshotAmount)}</p>
                                         {prev !== null && (
-                                          <p className="text-emerald-500/50 text-[10px] num mt-0.5">ant: {fmtARS(prev)}</p>
+                                          <p className="text-text-dim/40 text-[10px] num mt-0.5">ant: {fmtARS(prev)}</p>
                                         )}
                                       </>
                                     ) : (
@@ -699,7 +741,7 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                                     )}
                                   </div>
 
-                                  <ChevronRight className="w-4 h-4 text-text-dim flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                  <ChevronRight className="w-4 h-4 text-text-dim/40 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </div>
                               </motion.div>
                             );
@@ -721,48 +763,62 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                           <p className="text-sm">Sin movimientos en este resumen</p>
                         </div>
                       ) : (
-                        <table className="w-full text-sm">
-                          <thead className="sticky top-0 z-10" style={{ background: '#0c0e14' }}>
-                            <tr className="border-b border-line">
-                              <th className="py-3 px-5 text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] text-left w-28">Fecha</th>
-                              <th className="py-3 px-5 text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] text-left">Descripción</th>
-                              <th className="py-3 px-5 text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] text-right w-32">Movimiento</th>
-                              <th className="py-3 px-5 text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] text-right w-32">Saldo</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {/* Anchor row: snapshot final */}
-                            {selectedBatch.snapshotAmount !== null && (
-                              <tr className="border-b border-emerald-500/20 bg-emerald-500/[0.04]">
-                                <td className="py-3 px-5 text-emerald-500/60 text-xs num whitespace-nowrap">{fmtDateFull(selectedBatch.maxDate)}</td>
-                                <td className="py-3 px-5" colSpan={2}>
-                                  <span className="inline-flex items-center gap-2 text-emerald-400/70 text-xs font-semibold">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
-                                    Saldo de cierre
-                                  </span>
-                                </td>
-                                <td className="py-3 px-5 text-right text-emerald-300 font-bold num">{fmtARS(selectedBatch.snapshotAmount)}</td>
+                        <div className="flex flex-col">
+                          {/* Saldo de cierre banner */}
+                          {selectedBatch.snapshotAmount !== null && (
+                            <div className="mx-4 mt-4 mb-1 rounded-2xl bg-emerald-500/[0.07] border border-emerald-500/20 flex items-center justify-between px-4 py-3">
+                              <div className="flex items-center gap-3">
+                                <div className="w-7 h-7 rounded-lg bg-emerald-500/15 border border-emerald-500/25 grid place-items-center flex-shrink-0">
+                                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                </div>
+                                <div>
+                                  <p className="text-xs font-semibold text-emerald-300">Saldo de cierre</p>
+                                  <p className="text-[10px] text-emerald-500/50 mt-0.5">{fmtDateFull(selectedBatch.maxDate)}</p>
+                                </div>
+                              </div>
+                              <p className="text-emerald-300 font-bold num text-base">{fmtARS(selectedBatch.snapshotAmount)}</p>
+                            </div>
+                          )}
+
+                          {/* Table */}
+                          <table className="w-full text-sm mt-2">
+                            <thead className="sticky top-0 z-10" style={{ background: '#0c0e14' }}>
+                              <tr>
+                                <th className="py-2.5 pl-5 pr-3 text-[10px] font-bold text-text-dim/50 uppercase tracking-[0.18em] text-left w-24">Fecha</th>
+                                <th className="py-2.5 px-3 text-[10px] font-bold text-text-dim/50 uppercase tracking-[0.18em] text-left">Descripción</th>
+                                <th className="py-2.5 px-3 text-[10px] font-bold text-text-dim/50 uppercase tracking-[0.18em] text-right w-36">Movimiento</th>
+                                <th className="py-2.5 pl-3 pr-5 text-[10px] font-bold text-text-dim/50 uppercase tracking-[0.18em] text-right w-28">Saldo</th>
                               </tr>
-                            )}
-                            {batchTxList.map((tx, i) => (
-                              <motion.tr
-                                key={tx.key}
-                                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                                transition={{ delay: i * 0.012 }}
-                                className="border-b border-line/40 last:border-0 hover:bg-white/[0.02] transition-colors"
-                              >
-                                <td className="py-3 px-5 text-text-muted text-xs num whitespace-nowrap">{fmtDateFull(tx.date)}</td>
-                                <td className="py-3 px-5 max-w-[220px]">
-                                  <span className="text-text-soft truncate block">{tx.description}</span>
-                                </td>
-                                <td className={cn('py-3 px-5 text-right font-bold num', tx.kind === 'income' ? 'text-emerald-400' : 'text-red-400')}>
-                                  {tx.kind === 'income' ? '+' : '−'}{fmtARS(tx.amount)}
-                                </td>
-                                <td className="py-3 px-5 text-right num text-text-soft">{fmtARS(tx.runningBalance)}</td>
-                              </motion.tr>
-                            ))}
-                          </tbody>
-                        </table>
+                              <tr><td colSpan={4} className="h-px bg-line/40 p-0" /></tr>
+                            </thead>
+                            <tbody>
+                              {batchTxList.map((tx, i) => (
+                                <motion.tr
+                                  key={tx.key}
+                                  initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                                  transition={{ delay: i * 0.012 }}
+                                  className="border-b border-line/30 last:border-0 hover:bg-white/[0.025] transition-colors"
+                                >
+                                  <td className="py-3 pl-5 pr-3 text-text-dim/50 text-xs num whitespace-nowrap">{fmtDateFull(tx.date)}</td>
+                                  <td className="py-3 px-3 max-w-[200px]">
+                                    <span className="text-text-soft text-xs truncate block">{tx.description}</span>
+                                  </td>
+                                  <td className="py-3 px-3 text-right">
+                                    <span className={cn(
+                                      'inline-flex items-center justify-center gap-0.5 text-xs font-bold num px-2.5 py-1 rounded-lg',
+                                      tx.kind === 'income'
+                                        ? 'bg-emerald-500/[0.12] text-emerald-400'
+                                        : 'bg-red-500/[0.12] text-red-400'
+                                    )}>
+                                      {tx.kind === 'income' ? '+' : '−'}{fmtARS(tx.amount)}
+                                    </span>
+                                  </td>
+                                  <td className="py-3 pl-3 pr-5 text-right num text-text-dim/50 text-xs">{fmtARS(tx.runningBalance)}</td>
+                                </motion.tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
                       )}
                     </motion.div>
                   )}
@@ -771,12 +827,10 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
 
               {/* Footer */}
               {selectedBatch && !loadingBatchTx && batchTxList.length > 0 && (
-                <div className="px-6 py-3 border-t border-line flex items-center justify-between flex-shrink-0">
-                  <span className="text-[10px] text-text-dim">
-                    <span className="text-emerald-400 font-bold">+</span> ingreso &nbsp;·&nbsp;
-                    <span className="text-red-400 font-bold">−</span> gasto &nbsp;·&nbsp;
-                    Saldo reconstruido desde el cierre
-                  </span>
+                <div className="px-5 py-3 border-t border-line/50 flex items-center gap-2.5 flex-shrink-0 bg-white/[0.01]">
+                  <span className="inline-flex items-center gap-1 bg-emerald-500/[0.1] text-emerald-400/70 text-[10px] font-semibold px-2 py-0.5 rounded-md">+ ingreso</span>
+                  <span className="inline-flex items-center gap-1 bg-red-500/[0.1] text-red-400/70 text-[10px] font-semibold px-2 py-0.5 rounded-md">− gasto</span>
+                  <span className="text-[10px] text-text-dim/35">·  Saldo reconstruido desde el cierre</span>
                 </div>
               )}
             </div>

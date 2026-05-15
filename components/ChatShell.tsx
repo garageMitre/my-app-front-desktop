@@ -11,7 +11,7 @@ export function ChatShell() {
     <div
       className="flex-shrink-0 overflow-hidden h-full"
       style={{
-        width: open ? 280 : 0,
+        width: open ? 320 : 0,
         transition: 'width 320ms cubic-bezier(0.32, 0.72, 0, 1)',
       }}
       aria-hidden={!open}
