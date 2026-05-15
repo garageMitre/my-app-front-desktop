@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - img "GastoFácil" [ref=e7]
+        - generic [ref=e8]: GastoFácil
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - heading "Controlá tus finanzas, tomá el control." [level=1] [ref=e11]:
+            - text: Controlá tus
+            - text: finanzas,
+            - text: tomá el control.
+          - paragraph [ref=e12]: Una herramienta simple y poderosa para llevar tus gastos al día, en pesos y dólares.
+        - generic [ref=e13]:
+          - generic [ref=e16]: Seguí ingresos, gastos y categorías
+          - generic [ref=e19]: Gestión en ARS y USD con cotización oficial
+          - generic [ref=e22]: Asistente IA para analizar tus finanzas
+      - paragraph [ref=e23]: © 2026 GastoFácil
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - heading "Bienvenido de vuelta" [level=2] [ref=e27]
+        - paragraph [ref=e28]: Ingresá tus datos para continuar
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: Correo electrónico
+          - textbox "tu@email.com" [ref=e32]
+        - generic [ref=e33]:
+          - generic [ref=e34]: Contraseña
+          - textbox "••••••••" [ref=e35]
+        - button "Ingresar" [ref=e36]
+        - paragraph [ref=e37]:
+          - text: ¿No tenés cuenta?
+          - link "Registrate gratis" [ref=e38] [cursor=pointer]:
+            - /url: /register
+  - button "Open Next.js Dev Tools" [ref=e44] [cursor=pointer]:
+    - img [ref=e45]

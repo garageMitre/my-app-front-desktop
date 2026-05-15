@@ -20,7 +20,7 @@ export default function LoginPage() {
         <div className="relative w-full max-w-[360px] flex flex-col gap-8">
           {/* Logo mobile (solo visible sin panel) */}
           <div className="flex items-center gap-2.5 lg:hidden">
-            <div className="h-8 w-8 rounded-xl border border-indigo-400/20 bg-[#080914] overflow-hidden">
+            <div className="h-9 w-9 rounded-xl border-2 border-accent/30 bg-accent/10 overflow-hidden shadow-[0_0_20px_-4px_rgba(108,99,255,0.5)]">
               <img src="/logo-icon.png" alt="GastoFácil" className="h-full w-full object-cover" />
             </div>
             <span className="font-extrabold text-text tracking-tight">

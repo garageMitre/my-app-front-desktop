@@ -4,11 +4,17 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\nachi\\\\Projects\\\\mi-app\\\\backend\\\\src\" -Recurse -Filter \"*auth*\" -Name)",
       "Bash(Sort-Object)",
       "mcp__playwright",
+      "context7",
       "Bash(copy middleware.ts middleware.ts.bak)",
       "Bash(echo \"import { NextResponse } from 'next/server'; export default function middleware\\(\\) { return NextResponse.next\\(\\); } export const config = { matcher: [] };\")",
       "PowerShell(Copy-Item *)",
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\nachi\\\\Projects\\\\mi-app\\\\backend-python\\\\app\\\\services\" -File -Recurse)",
-      "Bash(Select-Object FullName)"
+      "Bash(Select-Object FullName)",
+      "Bash(New-Item -ItemType File -Path \"C:\\\\Users\\\\nachi\\\\projects\\\\my-app-front-desktop\\\\components\\\\ThemeProvider.tsx\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(Write-Output \"created\")",
+      "PowerShell(New-Item *)",
+      "Bash(claude mcp *)"
     ]
   }
 }

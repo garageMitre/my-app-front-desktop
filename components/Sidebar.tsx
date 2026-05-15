@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, LayoutGroup } from 'framer-motion';
 import { LayoutDashboard, ArrowLeftRight, Tag, TrendingUp, Calendar1Icon } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 
 const NAV = [
   { href: '/dashboard',  label: 'Dashboard',  icon: LayoutDashboard, color: '#A78BFA' },
@@ -15,6 +16,9 @@ const NAV = [
 
 export default function Sidebar() {
   const path = usePathname() || '/';
+  const { theme } = useTheme();
+  const isLight = theme === 'light' || theme === 'blue';
+  const inactiveIconColor = isLight ? 'rgba(45,50,100,0.65)' : 'rgba(168,170,190,0.7)';
 
   return (
     <div className="pointer-events-none fixed bottom-4 left-1/2 z-50 -translate-x-1/2">
@@ -53,7 +57,7 @@ export default function Sidebar() {
                     style={{
                       width: 20,
                       height: 20,
-                      color: active ? item.color : 'rgba(168,170,190,0.7)',
+                      color: active ? item.color : inactiveIconColor,
                       opacity: active ? 1 : undefined,
                     }}
                     strokeWidth={active ? 2.2 : 1.9}

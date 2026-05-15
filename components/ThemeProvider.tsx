@@ -2,50 +2,39 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = 'dark' | 'light';
+export type Theme = 'dark' | 'dim' | 'blue' | 'light';
 
-type ThemeContextValue = {
+interface ThemeCtx {
   theme: Theme;
-  toggleTheme: () => void;
-  setTheme: (theme: Theme) => void;
-};
+  setTheme: (t: Theme) => void;
+}
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
+const ThemeContext = createContext<ThemeCtx>({ theme: 'dark', setTheme: () => {} });
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+
+export function ThemeWrapper({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('dark');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('gastofacil-theme') as Theme | null;
-    const initialTheme = savedTheme ?? 'dark';
-
-    setThemeState(initialTheme);
-    document.documentElement.dataset.theme = initialTheme;
+    setMounted(true);
+    const saved = localStorage.getItem('gf-theme') as Theme | null;
+    const valid: Theme[] = ['dark', 'dim', 'blue', 'light'];
+    if (saved && valid.includes(saved)) setThemeState(saved);
   }, []);
 
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem('gastofacil-theme', newTheme);
-    document.documentElement.dataset.theme = newTheme;
-  };
-
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  useEffect(() => {
+    if (!mounted) return;
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('gf-theme', theme);
+  }, [theme, mounted]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme: setThemeState }}>
       {children}
     </ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error('useTheme debe usarse dentro de ThemeProvider');
-  }
-
-  return context;
 }

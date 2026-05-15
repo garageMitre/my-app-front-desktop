@@ -585,7 +585,7 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
             className="fixed inset-0 z-50 flex items-center justify-center p-6 pointer-events-none"
           >
             <div
-              className="w-full max-w-2xl max-h-[80vh] flex flex-col rounded-2xl border border-emerald-500/20 bg-[#0c0e14] shadow-2xl shadow-black/60 pointer-events-auto overflow-hidden"
+              className="w-full max-w-2xl max-h-[80vh] flex flex-col rounded-2xl border border-emerald-500/20 bg-bg shadow-2xl shadow-black/60 pointer-events-auto overflow-hidden"
               onClick={e => e.stopPropagation()}
             >
               {/* ── Header ── */}
@@ -605,7 +605,7 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                       {selectedBatch ? batchMonthLabel(selectedBatch) : 'Resúmenes bancarios'}
                     </p>
                     {!selectedBatch && (
-                      <p className="text-sm font-semibold text-text mt-0.5">Banco BBVA</p>
+                      <p className="text-sm font-semibold text-text mt-0.5">Banco</p>
                     )}
                     {selectedBatch && selectedBatch.snapshotAmount !== null && (
                       <p className="text-xl font-bold text-emerald-300 num mt-0.5">{fmtARS(selectedBatch.snapshotAmount)}</p>
@@ -634,7 +634,7 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                             <div className="w-20 h-20 rounded-2xl bg-emerald-500/[0.07] border border-emerald-500/15 grid place-items-center">
                               <Landmark className="w-8 h-8 text-emerald-400/40" />
                             </div>
-                            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-lg bg-[#0c0e14] border border-line grid place-items-center">
+                            <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-lg bg-bg border border-line grid place-items-center">
                               <span className="text-[10px]">📄</span>
                             </div>
                           </div>
@@ -782,7 +782,7 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
 
                           {/* Table */}
                           <table className="w-full text-sm mt-2">
-                            <thead className="sticky top-0 z-10" style={{ background: '#0c0e14' }}>
+                            <thead className="sticky top-0 z-10 bg-bg">
                               <tr>
                                 <th className="py-2.5 pl-5 pr-3 text-[10px] font-bold text-text-dim/50 uppercase tracking-[0.18em] text-left w-24">Fecha</th>
                                 <th className="py-2.5 px-3 text-[10px] font-bold text-text-dim/50 uppercase tracking-[0.18em] text-left">Descripción</th>

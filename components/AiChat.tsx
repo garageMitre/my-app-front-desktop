@@ -494,7 +494,7 @@ export default function AiChat() {
   return (
     <aside
       className="w-[320px] h-full flex-shrink-0 flex flex-col border-r border-line relative overflow-hidden"
-      style={{ background: 'rgba(9,10,17,0.95)', backdropFilter: 'blur(24px)' }}
+      style={{ background: 'var(--chat-panel-bg)', backdropFilter: 'blur(24px)' }}
     >
       {/* ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full bg-accent/[0.07] blur-[70px] pointer-events-none" />
